@@ -1,18 +1,81 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <el-menu
+    :default-active="this.$router.path"
+    class="el-menu-demo"
+    mode="horizontal"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    fixed="top"
+    style="top: 0"
+    :router="false"
+  >
+    <el-menu-item index="/" @click="routerPush('/')"
+      >Eddie He's Avatars</el-menu-item
+    >
+    <el-sub-menu index="2">
+      <template #title>Avatars</template>
+      <el-menu-item index="2-1" route="/">DarkMode</el-menu-item>
+      <el-menu-item index="2-2" :disabled="activeIndex2 === '/' ? true : false"
+        >LightMode</el-menu-item
+      >
+      <el-sub-menu index="2-3">
+        <template #title>Avatar-Json</template>
+        <el-menu-item index="2-3-1">JSONPLaceholder</el-menu-item>
+      </el-sub-menu>
+    </el-sub-menu>
+    <el-sub-menu index="3">
+      <template #title>Favicons</template>
+      <el-menu-item
+        index="3-0"
+        @click="openBlankWebsite('https://eddiehe.super.site')"
+        >Auto</el-menu-item
+      >
+      <el-menu-item index="3-1">DarkMode</el-menu-item>
+      <el-menu-item index="3-2">LightMode</el-menu-item>
+      <el-sub-menu index="3-3">
+        <template #title>Favicon-Json</template>
+        <el-menu-item index="3-3-1">Favicon-JSONPLaceholder</el-menu-item>
+      </el-sub-menu>
+    </el-sub-menu>
+    <el-menu-item index="/about" @click="routerPush('/about')"
+      >About</el-menu-item
+    >
+  </el-menu>
+  <!-- <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav> -->
+  <router-view />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+import { ElMenu, ElMenuItem, ElSubMenu, Resize } from "element-plus";
+window.onresize = Resize;
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: { ElMenu, ElMenuItem, ElSubMenu },
+  data() {
+    return {
+      activeIndex2: "/",
+      screenWidth: document.body.clientWidth,
+      screeHeight: document.body.clientHeight,
+    };
+  },
+  methods: {
+    Resize() {
+      console.log("Window resized");
+    },
+    routerPush(URL) {
+      this.$router.push(URL);
+    },
+    openBlankWebsite(URL) {
+      window.open(URL, "_blank", "noopener=yes,noreferrer=yes");
+    },
+  },
+};
 </script>
+
 
 <style>
 #app {
@@ -21,6 +84,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
