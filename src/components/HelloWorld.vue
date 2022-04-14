@@ -176,23 +176,6 @@ export default {
     changeItem(e) {
       this.index = e;
     },
-    confirmVarification() {
-      if (this.inputNumber === 1) {
-        this.dialogVisible = false;
-        this.iconName = "loading";
-        this.patchJsonplaceholderAvatars();
-        // this.putJsonbinAvatars();
-        // this.putKratesAvatars();
-      } else {
-        ElMessage({
-          showClose: true,
-          title: "Warning",
-          message: "Wrong varification code!",
-          type: "warning",
-          position: "top-right",
-        });
-      }
-    },
     showSuccessNotification() {
       ElNotification({
         showClose: true,
@@ -316,12 +299,29 @@ export default {
         console.log("put krates error =", error);
       });
     },
+    confirmVarification() {
+      if (this.inputNumber === 1) {
+        this.dialogVisible = false;
+        this.iconName = "loading";
+        // this.patchJsonplaceholderAvatars();
+        // this.putJsonbinAvatars();
+        this.putKratesAvatars();
+      } else {
+        ElMessage({
+          showClose: true,
+          title: "Warning",
+          message: "Wrong varification code!",
+          type: "warning",
+          position: "top-right",
+        });
+      }
+    },
   },
   created() {
     this.iconName = "loading";
-    this.getJsonplaceholderAvatars();
+    // this.getJsonplaceholderAvatars();
     // this.getJsonbinAvatars();
-    // this.getKratesAvatars();
+    this.getKratesAvatars();
   },
 };
 </script>
