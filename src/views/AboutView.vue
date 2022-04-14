@@ -6,10 +6,15 @@
       <h3>Powerd by</h3>
       <ul>
         <li>
-          <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue</a>
+          <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"
+            >Vue</a
+          >
         </li>
         <li>
-          <a href="https://element-plus.org/" target="_blank" rel="noopener"
+          <a
+            href="https://element-plus.org/"
+            target="_blank"
+            rel="noopener noreferrer"
             >Element-Plus</a
           >
         </li>
@@ -17,12 +22,15 @@
           <a
             href="http://jsonplaceholder.typicode.com/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >JSONPLaceholder</a
           >
         </li>
         <li>
-          <a href="https://app.krat.es/" target="_blank" rel="noopener"
+          <a
+            href="https://app.krat.es/"
+            target="_blank"
+            rel="noopener noreferrer"
             >Krates</a
           >
         </li>
@@ -30,7 +38,7 @@
           <a
             href="https://render-web.onrender.com/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             >Render</a
           >
         </li>
@@ -38,7 +46,10 @@
       <h3>Coded by</h3>
       <ul>
         <li>
-          <a href="https://eddiehe.super.site" target="_blank" rel="noopener"
+          <a
+            href="https://eddiehe.super.site/"
+            target="_blank"
+            rel="noopener noreferrer"
             >Eddie He</a
           >
         </li>

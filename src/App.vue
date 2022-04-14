@@ -15,27 +15,59 @@
     >
     <el-sub-menu index="2">
       <template #title>Avatars</template>
-      <el-menu-item index="2-1" route="/">DarkMode</el-menu-item>
+      <el-menu-item
+        index="2-1"
+        @click="openSelfWebsite('https://eddiehe-avatars-darkmode.vercel.app/')"
+        >DarkMode</el-menu-item
+      >
       <el-menu-item index="2-2" :disabled="activeIndex2 === '/' ? true : false"
         >LightMode</el-menu-item
       >
       <el-sub-menu index="2-3">
-        <template #title>Avatar-Json</template>
-        <el-menu-item index="2-3-1">JSONPLaceholder</el-menu-item>
+        <template #title>JSON</template>
+        <el-menu-item
+          index="2-3-1"
+          @click="
+            openBlankWebsite(
+              'https://my-json-server.typicode.com/eddiehe49/avatars-json/'
+            )
+          "
+          >JSONPLaceholder</el-menu-item
+        >
       </el-sub-menu>
     </el-sub-menu>
     <el-sub-menu index="3">
       <template #title>Favicons</template>
       <el-menu-item
         index="3-0"
-        @click="openBlankWebsite('https://eddiehe.super.site')"
+        @click="openSelfWebsite('https://eddiehe-favicons.vercel.app/')"
         >Auto</el-menu-item
       >
-      <el-menu-item index="3-1">DarkMode</el-menu-item>
-      <el-menu-item index="3-2">LightMode</el-menu-item>
+      <el-menu-item
+        index="3-1"
+        @click="
+          openSelfWebsite('https://eddiehe-favicons-darkmode.vercel.app/')
+        "
+        >DarkMode</el-menu-item
+      >
+      <el-menu-item
+        index="3-2"
+        @click="
+          openSelfWebsite('https://eddiehe-favicons-lightmode.onrender.com/')
+        "
+        >LightMode</el-menu-item
+      >
       <el-sub-menu index="3-3">
-        <template #title>Favicon-Json</template>
-        <el-menu-item index="3-3-1">Favicon-JSONPLaceholder</el-menu-item>
+        <template #title>JSON</template>
+        <el-menu-item
+          index="3-3-1"
+          @click="
+            openBlankWebsite(
+              'https://my-json-server.typicode.com/eddiehe49/favicons-json/'
+            )
+          "
+          >JSONPLaceholder</el-menu-item
+        >
       </el-sub-menu>
     </el-sub-menu>
     <el-menu-item index="/about" @click="routerPush('/about')"
@@ -68,6 +100,9 @@ export default {
     },
     routerPush(URL) {
       this.$router.push(URL);
+    },
+    openSelfWebsite(URL) {
+      window.open(URL, "_self", "noopener=yes,noreferrer=yes");
     },
     openBlankWebsite(URL) {
       window.open(URL, "_blank", "noopener=yes,noreferrer=yes");
