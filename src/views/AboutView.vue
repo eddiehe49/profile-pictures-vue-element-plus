@@ -20,7 +20,7 @@
         </li>
         <li>
           <a
-            href="http://jsonplaceholder.typicode.com/"
+            href="https://jsonplaceholder.typicode.com/"
             target="_blank"
             rel="noopener noreferrer"
             >JSONPLaceholder</a

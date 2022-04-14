@@ -20,7 +20,9 @@
         @click="openSelfWebsite('https://eddiehe-avatars-darkmode.vercel.app/')"
         >DarkMode</el-menu-item
       >
-      <el-menu-item index="2-2" :disabled="activeIndex2 === '/' ? true : false"
+      <el-menu-item
+        index="2-2"
+        :disabled="this.$route.path === '/' ? true : false"
         >LightMode</el-menu-item
       >
       <el-sub-menu index="2-3">
@@ -70,7 +72,10 @@
         >
       </el-sub-menu>
     </el-sub-menu>
-    <el-menu-item index="/about" @click="routerPush('/about')"
+    <el-menu-item
+      index="/about"
+      @click="routerPush('/about')"
+      :disabled="this.$route.path === '/about' ? true : false"
       >About</el-menu-item
     >
   </el-menu>
