@@ -1,13 +1,13 @@
 <template>
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
-    <el-container style="padding-top: 10%">
+    <el-container style="margin-top: 3%">
       <div style="width: 30%; height: 50%; float: left">
-        <p className="leftWords" style="font-size: calc(20% + 2vmin)">
+        <p className="leftWords">
           {{ localAvatars ? localAvatars[index].words : null }}
         </p>
       </div>
-      <div style="width: 40%; height: 40%; float: left">
+      <div style="width: 40%; height: 50%; float: left">
         <el-carousel
           :interval="4000"
           type="card"
@@ -26,18 +26,15 @@
         </el-carousel>
       </div>
       <div style="width: 30%; height: 50%; float: left">
-        <p
-          className="rightWords"
-          style="text-align: left; font-size: calc(20% + 2vmin)"
-        >
-          <code style="font-size: calc(20% + 2vmin); color: #409eff">
+        <p className="rightWords">
+          <code style="color: #409eff; font-size: x-large">
             {{ localAvatars ? localAvatars[index].likes : null }}
           </code>
           folks like this avatar.
         </p>
       </div>
     </el-container>
-    <div className="container-fluid" style="padding-top: 5%; clear: both">
+    <div className="container-fluid" style="margin-top: 2%; clear: both">
       <el-tooltip
         content="Click Me!"
         effect="customized"
@@ -329,11 +326,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .leftWords {
-  word-break: normal;
-  white-space: pre-warp;
-  word-wrap: break-word;
+  font-size: large;
+  padding-left: 15%;
   padding-right: 5%;
-  align-items: right;
   justify-content: right;
   text-align: right;
   display: flex;
@@ -343,6 +338,7 @@ export default {
 }
 
 .rightWords {
+  font-size: large;
   padding-left: 5%;
   align-items: left;
   justify-content: left;
