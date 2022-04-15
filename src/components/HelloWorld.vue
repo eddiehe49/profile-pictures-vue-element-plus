@@ -19,9 +19,8 @@
           <el-carousel-item
             v-for="localAvatar in localAvatars"
             :key="localAvatar.id"
-            class="item"
           >
-            <el-image :src="localAvatar.src" class="image" />
+            <el-image :src="localAvatar.src" />
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -331,7 +330,6 @@ export default {
   padding-right: 5%;
   justify-content: right;
   text-align: right;
-  display: flex;
   margin: 0 auto;
   margin-top: 20%;
   vertical-align: middle;
@@ -340,10 +338,8 @@ export default {
 .rightWords {
   font-size: large;
   padding-left: 5%;
-  align-items: left;
   justify-content: left;
   text-align: left;
-  /* display        : flex; */
   margin: 0 auto;
   margin-top: 40%;
   vertical-align: middle;
@@ -356,9 +352,6 @@ export default {
 }
 
 .img {
-  /* width: 80%; */
-  /* height: 100%; */
-  /* display: flex; */
   position: absolute;
   left: 50%;
   top: 50%;
