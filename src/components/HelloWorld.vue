@@ -26,7 +26,7 @@
       </div>
       <div style="width: 30%; height: 50%; float: left">
         <p className="rightWords">
-          <code style="color: #409eff; font-size: x-large">
+          <code style="color: #409eff; font-size: larger">
             {{ localAvatars ? localAvatars[index].likes : null }}
           </code>
           folks like this avatar.
