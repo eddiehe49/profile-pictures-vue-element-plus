@@ -3,6 +3,22 @@
     <img alt="Vue logo" src="../assets/logo.png" style="margin-top: 3%" />
     <!-- <h1>This is an about page</h1> -->
     <div class="hello">
+      <h3>What are avatars?</h3>
+      <p>
+        Check out this
+        <a
+          href="https://web.okjike.com/u/60001f57-6fec-4ad1-963b-51ebdf913f8c"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: #409eff"
+        >
+          site</a
+        >
+        on your desktop browser.
+        <br />
+        Do you see the round picture in the top-left corner of every post?
+        That's my avatar!
+      </p>
       <h3>Powerd by</h3>
       <ul>
         <li>
