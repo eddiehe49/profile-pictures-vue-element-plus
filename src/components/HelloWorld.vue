@@ -3,9 +3,10 @@
     <!-- <h1>{{ msg }}</h1> -->
     <el-container style="margin-top: 3%">
       <div style="width: 30%; height: 50%; float: left">
-        <p className="leftWords">
-          {{ localAvatars ? localAvatars[index].words : null }}
-        </p>
+        <p
+          className="leftWords"
+          v-html="localAvatars ? localAvatars[index].words : 'Hold on please.'"
+        ></p>
       </div>
       <div style="width: 40%; height: 50%; float: left">
         <el-carousel
@@ -25,12 +26,13 @@
         </el-carousel>
       </div>
       <div style="width: 30%; height: 50%; float: left">
-        <p className="rightWords">
-          <code style="color: #409eff; font-size: larger">
+        <p className="rightWords" v-if="localAvatars">
+          <code style="color: #337ecc; font-size: larger">
             {{ localAvatars ? localAvatars[index].likes : null }}
           </code>
           folks like this avatar.
         </p>
+        <p className="rightWords" v-else style="font-weight: bold">...</p>
       </div>
     </el-container>
     <div className="container-fluid" style="margin-top: 2%; clear: both">
