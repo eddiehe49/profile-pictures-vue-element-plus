@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log(process.env.VUE_APP_x_api_key)
-console.log(process.env.VUE_APP_X_Master_Key)
 const jsonplaceholderApiClient = axios.create({
     baseURL: 'https://my-json-server.typicode.com/eddiehe49/avatars-json',
     withCredentials: false,
