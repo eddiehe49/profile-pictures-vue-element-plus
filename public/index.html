@@ -10,6 +10,19 @@
     <%= htmlWebpackPlugin.options.title %>
   </title> -->
   <title>Eddie He's Avatars</title>
+  <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+  <style type="text/css">
+    :root {
+      --waline-border: none;
+      --waline-box-shadow: 0 12px 40px rgb(134 151 168 / 25%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        --waline-box-shadow: 0 12px 40px #0f0e0d;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -18,6 +31,7 @@
         Please enable it to continue.</strong>
   </noscript>
   <div id="app"></div>
+  <div id="waline" style="padding: 5% 20% 0 20%;"></div>
   <!-- built files will be auto injected -->
 </body>
 
