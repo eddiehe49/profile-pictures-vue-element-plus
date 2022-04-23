@@ -178,7 +178,7 @@ export default {
       ElNotification({
         showClose: true,
         title: "Success",
-        message: "Thank you for your like!",
+        message: "Thanks for your thumbs up!",
         type: "success",
         position: "top-right",
       });

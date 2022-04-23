@@ -3,8 +3,19 @@
     <img alt="Vue logo" src="../assets/logo.png" style="margin-top: 3%" />
     <!-- <h1>This is an about page</h1> -->
     <div class="hello">
-      <h3>What are avatars?</h3>
-      <p>
+      <el-button
+        type="primary"
+        style="margin: 2% 0 2% 0"
+        @click="drawer = true"
+      >
+        What are avatars?
+      </el-button>
+      <el-drawer
+        v-model="drawer"
+        title="What are avatars?"
+        direction="btt"
+        size="35%"
+      >
         Check out this
         <a
           href="https://web.okjike.com/u/60001f57-6fec-4ad1-963b-51ebdf913f8c"
@@ -17,8 +28,9 @@
         on your desktop browser.
         <br />
         Do you see the round picture in the top-left corner of every post?
+        <br />
         That's my avatar!
-      </p>
+      </el-drawer>
       <h3>Powerd by</h3>
       <ul>
         <li>
@@ -76,7 +88,13 @@
 
 <script>
 import { getCurrentInstance } from "vue";
+import { ref } from "vue";
 export default {
+  data() {
+    return {
+      drawer: ref(false),
+    };
+  },
   mounted() {
     const internalInstance = getCurrentInstance();
     //  全局变量
