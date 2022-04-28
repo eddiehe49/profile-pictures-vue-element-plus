@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
-    <el-container style="margin-top: 3%">
-      <div style="width: 30%; height: 50%; float: left">
+    <el-container style="padding-top: 3%">
+      <div style="width: 30%; float: left">
         <p
-          className="leftWords"
+          class="leftWords"
           v-html="localAvatars ? localAvatars[index].words : 'Hold on please.'"
         ></p>
       </div>
-      <div style="width: 40%; height: 50%; float: left">
+      <div style="width: 40%; float: left">
         <el-carousel
           :interval="4000"
           type="card"
@@ -25,17 +25,17 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <div style="width: 30%; height: 50%; float: left">
-        <p className="rightWords" v-if="localAvatars">
+      <div style="width: 30%; float: left">
+        <p class="rightWords" v-if="localAvatars">
           <code style="color: #337ecc; font-size: larger">
             {{ localAvatars ? localAvatars[index].likes : null }}
           </code>
           folks like this avatar.
         </p>
-        <p className="rightWords" v-else style="font-weight: bold">...</p>
+        <p class="rightWords" v-else style="font-weight: bold">...</p>
       </div>
     </el-container>
-    <div className="container-fluid" style="margin-top: 2%; clear: both">
+    <div className="container-fluid" style="padding-top: 2%; clear: both">
       <el-tooltip
         content="Click Me!"
         effect="customized"
@@ -195,16 +195,16 @@ export default {
     getJsonplaceholderAvatars() {
       const getAvatars = async () => {
         let result = await Service.getJsonplaceholderAvatarsJson();
-        console.log("get jsonplaceholder result =", result);
+        console.log("get jsonplaceholder result: ", result);
         this.localAvatars = result.data;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars =", this.localAvatars);
+        console.log("this.localAvatars: ", this.localAvatars);
       };
       getAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("get jsonplaceholder error =", error);
+        console.log("get jsonplaceholder error: ", error);
       });
     },
     patchJsonplaceholderAvatars() {
@@ -212,7 +212,7 @@ export default {
         let result = await Service.patchJsonplaceholderAvatarsJson(this.index, {
           likes: this.localAvatars[this.index].likes + 1,
         });
-        console.log("patch jsonplaceholder result =", result);
+        console.log("patch jsonplaceholder result: ", result);
         this.localAvatars[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
@@ -223,22 +223,22 @@ export default {
       };
       patchAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("patch jsonplaceholder error =", error);
+        console.log("patch jsonplaceholder error: ", error);
       });
     },
     getJsonbinAvatars() {
       const getAvatars = async () => {
         let result = await Service.getJsonbinAvatarsJson();
-        console.log("get jsonbin result =", result);
+        console.log("get jsonbin result: ", result);
         this.localAvatars = result.data.record.avatars;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars =", this.localAvatars);
+        console.log("this.localAvatars: ", this.localAvatars);
       };
       getAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("get jsonbin error =", error);
+        console.log("get jsonbin error: ", error);
       });
     },
     putJsonbinAvatars() {
@@ -248,7 +248,7 @@ export default {
       avatars[this.index].likes += 1;
       const putAvatars = async () => {
         let result = await Service.putJsonbinAvatarsJson({ avatars });
-        console.log("put jsonbin result =", result);
+        console.log("put jsonbin result: ", result);
         this.localAvatars[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
@@ -259,22 +259,22 @@ export default {
       };
       putAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("put jsonbin error =", error);
+        console.log("put jsonbin error: ", error);
       });
     },
     getKratesAvatars() {
       const getAvatars = async () => {
         let result = await Service.getKratesAvatarsJson();
-        console.log("get krates result =", result);
+        console.log("get krates result: ", result);
         this.localAvatars = result.data[0].avatars;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars =", this.localAvatars);
+        console.log("this.localAvatars: ", this.localAvatars);
       };
       getAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("get krates error =", error);
+        console.log("get krates error: ", error);
       });
     },
     putKratesAvatars() {
@@ -283,7 +283,7 @@ export default {
       avatars[this.index].likes += 1;
       const putAvatars = async () => {
         let result = await Service.putKratesAvatarsJson({ avatars });
-        console.log("put krates result =", result);
+        console.log("put krates result: ", result);
         this.localAvatars[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
@@ -294,7 +294,7 @@ export default {
       };
       putAvatars().catch((error) => {
         this.showErrorNotification();
-        console.log("put krates error =", error);
+        console.log("put krates error: ", error);
       });
     },
     confirmVarification() {
@@ -328,36 +328,18 @@ export default {
 <style>
 .leftWords {
   font-size: large;
-  padding-left: 15%;
-  padding-right: 5%;
   justify-content: right;
   text-align: right;
-  margin: 0 auto;
-  margin-top: 20%;
+  margin: 20% 5% 0 15%;
   vertical-align: middle;
 }
 
 .rightWords {
   font-size: large;
-  padding-left: 5%;
   justify-content: left;
   text-align: left;
-  margin: 0 auto;
-  margin-top: 40%;
+  margin: 40% 0 0 5%;
   vertical-align: middle;
-}
-
-.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .el-popper.is-customized {

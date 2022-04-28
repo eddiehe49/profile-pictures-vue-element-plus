@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <img alt="Vue logo" src="../assets/logo.png" style="margin-top: 3%" />
+    <img alt="Vue logo" src="../assets/logo.png" style="padding-top: 3%" />
     <!-- <h1>This is an about page</h1> -->
     <div class="hello">
       <el-button
