@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const jsonplaceholderApiClient = axios.create({
-    baseURL: 'https://my-json-server.typicode.com/eddiehe49/avatars',
+    baseURL: 'https://my-json-server.typicode.com/eddiehe49/profile-pictures',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -28,22 +28,22 @@ const kratesApiClient = axios.create({
 })
 
 export default {
-    getJsonplaceholderAvatarsJson() {
-        return jsonplaceholderApiClient.get('/avatars')
+    getJsonplaceholderProfilePicturesJson() {
+        return jsonplaceholderApiClient.get('/profilePictures')
     },
-    patchJsonplaceholderAvatarsJson(id, avatars) {
-        return jsonplaceholderApiClient.patch('/avatars/' + id, avatars)
+    patchJsonplaceholderProfilePicturesJson(id, profilePictures) {
+        return jsonplaceholderApiClient.patch('/profilePictures/' + id, profilePictures)
     },
-    getJsonbinAvatarsJson() {
+    getJsonbinProfilePicturesJson() {
         return jsonbinApiClient.get('/latest')
     },
-    putJsonbinAvatarsJson(avatars) {
-        return jsonbinApiClient.put('', avatars)
+    putJsonbinProfilePicturesJson(profilePictures) {
+        return jsonbinApiClient.put('', profilePictures)
     },
-    getKratesAvatarsJson() {
+    getKratesProfilePicturesJson() {
         return kratesApiClient.get("/record/624c33c65a015dc4d2223b6e")
     },
-    putKratesAvatarsJson(favicons) {
-        return kratesApiClient.put('/624c33c65a015dc4d2223b6e', favicons)
+    putKratesProfilePicturesJson(profilePictures) {
+        return kratesApiClient.put('/624c33c65a015dc4d2223b6e', profilePictures)
     },
 }

@@ -5,7 +5,11 @@
       <div style="width: 30%; float: left">
         <p
           class="leftWords"
-          v-html="localAvatars ? localAvatars[index].words : 'Hold on please.'"
+          v-html="
+            localProfilePictures
+              ? localProfilePictures[index].words
+              : 'Hold on please.'
+          "
         ></p>
       </div>
       <div style="width: 40%; float: left">
@@ -18,17 +22,19 @@
           ref="carousel"
         >
           <el-carousel-item
-            v-for="localAvatar in localAvatars"
-            :key="localAvatar.id"
+            v-for="localProfilePicture in localProfilePictures"
+            :key="localProfilePicture.id"
           >
             <el-image :src="localAvatar.src" />
           </el-carousel-item>
         </el-carousel>
       </div>
       <div style="width: 30%; float: left">
-        <p class="rightWords" v-if="localAvatars">
+        <p class="rightWords" v-if="localProfilePictures">
           <code style="color: #337ecc; font-size: larger">
-            {{ localAvatars ? localAvatars[index].likes : null }}
+            {{
+              localProfilePictures ? localProfilePictures[index].likes : null
+            }}
           </code>
           folks like this avatar.
         </p>
@@ -108,7 +114,7 @@ export default {
   },
   data() {
     return {
-      localAvatars: null,
+      localProfilePictures: null,
       index: null,
       iconName: "camera",
       iconSize: null,
@@ -192,28 +198,31 @@ export default {
         position: "top-right",
       });
     },
-    getJsonplaceholderAvatars() {
-      const getAvatars = async () => {
-        let result = await Service.getJsonplaceholderAvatarsJson();
+    getJsonplaceholderProfilePictures() {
+      const getProfilePictures = async () => {
+        let result = await Service.getJsonplaceholderProfilePicturesJson();
         console.log("get jsonplaceholder result: ", result);
-        this.localAvatars = result.data;
+        this.localProfilePictures = result.data;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars: ", this.localAvatars);
+        console.log("this.localProfilePictures: ", this.localProfilePictures);
       };
-      getAvatars().catch((error) => {
+      getProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("get jsonplaceholder error: ", error);
       });
     },
-    patchJsonplaceholderAvatars() {
-      const patchAvatars = async () => {
-        let result = await Service.patchJsonplaceholderAvatarsJson(this.index, {
-          likes: this.localAvatars[this.index].likes + 1,
-        });
+    patchJsonplaceholderProfilePictures() {
+      const patchProfilePictures = async () => {
+        let result = await Service.patchJsonplaceholderProfilePicturesJson(
+          this.index,
+          {
+            likes: this.localProfilePictures[this.index].likes + 1,
+          }
+        );
         console.log("patch jsonplaceholder result: ", result);
-        this.localAvatars[this.index].likes += 1;
+        this.localProfilePictures[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
         setTimeout(() => {
@@ -221,35 +230,37 @@ export default {
           console.log("2.5 s passed. Change camera-fill to camera.");
         }, 2500);
       };
-      patchAvatars().catch((error) => {
+      patchProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("patch jsonplaceholder error: ", error);
       });
     },
-    getJsonbinAvatars() {
-      const getAvatars = async () => {
-        let result = await Service.getJsonbinAvatarsJson();
+    getJsonbinProfilePictures() {
+      const getProfilePictures = async () => {
+        let result = await Service.getJsonbinProfilePicturesJson();
         console.log("get jsonbin result: ", result);
-        this.localAvatars = result.data.record.avatars;
+        this.localProfilePictures = result.data.record.profilePictures;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars: ", this.localAvatars);
+        console.log("this.localProfilePictures: ", this.localProfilePictures);
       };
-      getAvatars().catch((error) => {
+      getProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("get jsonbin error: ", error);
       });
     },
-    putJsonbinAvatars() {
-      // Coould not do (let tempAvatars=this.localAvatars), as tempAvatars will sync with this.localAvatars
-      let tempAvatars = JSON.stringify(this.localAvatars);
-      let avatars = JSON.parse(tempAvatars);
-      avatars[this.index].likes += 1;
-      const putAvatars = async () => {
-        let result = await Service.putJsonbinAvatarsJson({ avatars });
+    putJsonbinProfilePictures() {
+      // Coould not do (let tempProfilePictures=this.localProfilePictures), as tempProfilePictures will sync with this.localProfilePictures
+      let tempProfilePictures = JSON.stringify(this.localProfilePictures);
+      let profilePictures = JSON.parse(tempProfilePictures);
+      profilePictures[this.index].likes += 1;
+      const putProfilePictures = async () => {
+        let result = await Service.putJsonbinProfilePicturesJson({
+          profilePictures,
+        });
         console.log("put jsonbin result: ", result);
-        this.localAvatars[this.index].likes += 1;
+        this.localProfilePictures[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
         setTimeout(() => {
@@ -257,34 +268,36 @@ export default {
           console.log("3 s passed. Change camera-fill to camera.");
         }, 2500);
       };
-      putAvatars().catch((error) => {
+      putProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("put jsonbin error: ", error);
       });
     },
-    getKratesAvatars() {
-      const getAvatars = async () => {
-        let result = await Service.getKratesAvatarsJson();
+    getKratesProfilePictures() {
+      const getProfilePictures = async () => {
+        let result = await Service.getKratesProfilePicturesJson();
         console.log("get krates result: ", result);
-        this.localAvatars = result.data[0].avatars;
+        this.localProfilePictures = result.data[0].profilePictures;
         this.$refs.carousel.setActiveItem(0);
         this.index = 0;
         this.iconName = "camera";
-        console.log("this.localAvatars: ", this.localAvatars);
+        console.log("this.localProfilePictures: ", this.localProfilePictures);
       };
-      getAvatars().catch((error) => {
+      getProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("get krates error: ", error);
       });
     },
-    putKratesAvatars() {
-      let tempAvatars = JSON.stringify(this.localAvatars);
-      let avatars = JSON.parse(tempAvatars);
-      avatars[this.index].likes += 1;
-      const putAvatars = async () => {
-        let result = await Service.putKratesAvatarsJson({ avatars });
+    putKratesProfilePictures() {
+      let tempProfilePictures = JSON.stringify(this.localProfilePictures);
+      let profilePictures = JSON.parse(tempProfilePictures);
+      profilePictures[this.index].likes += 1;
+      const putProfilePictures = async () => {
+        let result = await Service.putKratesProfilePicturesJson({
+          profilePictures,
+        });
         console.log("put krates result: ", result);
-        this.localAvatars[this.index].likes += 1;
+        this.localProfilePictures[this.index].likes += 1;
         this.iconName = "camera-filled";
         this.showSuccessNotification();
         setTimeout(() => {
@@ -292,7 +305,7 @@ export default {
           console.log("3 s passed. Change camera-fill to camera.");
         }, 2500);
       };
-      putAvatars().catch((error) => {
+      putProfilePictures().catch((error) => {
         this.showErrorNotification();
         console.log("put krates error: ", error);
       });
@@ -301,9 +314,9 @@ export default {
       if (this.inputNumber === 1) {
         this.dialogVisible = false;
         this.iconName = "loading";
-        // this.patchJsonplaceholderAvatars();
-        // this.putJsonbinAvatars();
-        this.putKratesAvatars();
+        // this.patchJsonplaceholderProfilePictures();
+        // this.putJsonbinProfilePictures();
+        this.putKratesProfilePictures();
       } else {
         ElMessage({
           showClose: true,
@@ -317,9 +330,9 @@ export default {
   },
   created() {
     this.iconName = "loading";
-    // this.getJsonplaceholderAvatars();
-    // this.getJsonbinAvatars();
-    this.getKratesAvatars();
+    // this.getJsonplaceholderProfilePictures();
+    // this.getJsonbinProfilePictures();
+    this.getKratesProfilePictures();
   },
 };
 </script>

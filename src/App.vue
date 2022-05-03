@@ -11,13 +11,17 @@
     :router="false"
   >
     <el-menu-item index="/" @click="routerPush('/')"
-      >Eddie He's Avatars</el-menu-item
+      >Eddie He's Profile Pictures</el-menu-item
     >
     <el-sub-menu index="2">
       <template #title>Avatars</template>
       <el-menu-item
         index="2-1"
-        @click="openSelfWebsite('https://eddiehe-avatars-darkmode.vercel.app/')"
+        @click="
+          openSelfWebsite(
+            'https://eddiehe-profile-pictures-darkmode.vercel.app/'
+          )
+        "
         >DarkMode</el-menu-item
       >
       <el-menu-item
@@ -31,7 +35,7 @@
           index="2-3-1"
           @click="
             openBlankWebsite(
-              'https://my-json-server.typicode.com/eddiehe49/avatars-json/'
+              'https://my-json-server.typicode.com/eddiehe49/profile-pictures/'
             )
           "
           >JSONPLaceholder</el-menu-item
@@ -65,7 +69,7 @@
           index="3-3-1"
           @click="
             openBlankWebsite(
-              'https://my-json-server.typicode.com/eddiehe49/favicons-json/'
+              'https://my-json-server.typicode.com/eddiehe49/favicons/'
             )
           "
           >JSONPLaceholder</el-menu-item
