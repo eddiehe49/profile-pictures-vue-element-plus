@@ -1,6 +1,27 @@
 <template>
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
+    <el-dialog v-model="tipsDialogVisible" title="Tips" width="30%">
+      <ul style="text-align: left">
+        <li>
+          <span style="font-size: medium; font-weight: bold"
+            >There is a like button.</span
+          ><br />Give your preferred picture a thumb up!
+        </li>
+        <el-divider />
+        <li>
+          <span style="font-size: medium; font-weight: bold">Scroll down!</span
+          ><br />Have fun in the comment section.
+        </li>
+      </ul>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button type="primary" @click="tipsDialogVisible = false"
+            >OK</el-button
+          >
+        </span>
+      </template>
+    </el-dialog>
     <el-container style="padding-top: 3%">
       <div style="width: 30%; float: left">
         <p
@@ -50,7 +71,7 @@
         <el-icon
           style="cursor: pointer"
           :size="iconSize"
-          @click="dialogVisible = true"
+          @click="verificationDialogVisible = true"
           ><camera
         /></el-icon>
       </el-tooltip>
@@ -65,12 +86,18 @@
         ><camera-filled
       /></el-icon>
     </div>
-    <el-dialog v-model="dialogVisible" title="Varification" width="30%">
+    <el-dialog
+      v-model="verificationDialogVisible"
+      title="Varification"
+      width="30%"
+    >
       <p style="margin-bottom: 5%; font-size: medium">lg10 = ?</p>
       <el-input-number v-model="inputNumber" :min="1" :max="10" />
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">Cancel</el-button>
+          <el-button @click="verificationDialogVisible = false"
+            >Cancel</el-button
+          >
           <el-button type="primary" @click="confirmVarification"
             >Confirm</el-button
           >
@@ -121,7 +148,8 @@ export default {
       iconScale: 0.04,
       screenWidth: null,
       screenHeight: null,
-      dialogVisible: ref(false),
+      verificationDialogVisible: ref(false),
+      tipsDialogVisible: ref(true),
       inputNumber: ref(1),
     };
   },
@@ -312,7 +340,7 @@ export default {
     },
     confirmVarification() {
       if (this.inputNumber === 1) {
-        this.dialogVisible = false;
+        this.verificationDialogVisible = false;
         this.iconName = "loading";
         // this.patchJsonplaceholderProfilePictures();
         // this.putJsonbinProfilePictures();

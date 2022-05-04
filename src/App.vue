@@ -88,6 +88,7 @@
     <router-link to="/about">About</router-link>
   </nav> -->
   <router-view />
+  <el-backtop :right="100" :bottom="100" />
 </template>
 
 
