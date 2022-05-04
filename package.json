@@ -22,7 +22,7 @@
     "@vue/cli-plugin-eslint": "~5.0.4",
     "@vue/cli-plugin-router": "~5.0.4",
     "@vue/cli-service": "~5.0.4",
-    "@waline/client": "^2.1.1",
+    "@waline/client": "^2.1.2",
     "eslint": "^8.14.0",
     "eslint-plugin-vue": "^8.7.1"
   },
