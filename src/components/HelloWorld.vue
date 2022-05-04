@@ -25,7 +25,7 @@
             v-for="localProfilePicture in localProfilePictures"
             :key="localProfilePicture.id"
           >
-            <el-image :src="localAvatar.src" />
+            <el-image :src="localProfilePicture.src" />
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -341,8 +341,8 @@ export default {
 <style>
 .leftWords {
   font-size: large;
-  justify-content: right;
-  text-align: right;
+  justify-content: left;
+  text-align: left;
   margin: 20% 5% 0 15%;
   vertical-align: middle;
 }

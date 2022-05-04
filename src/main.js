@@ -3,15 +3,16 @@ import App from './App.vue'
 import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import Waline from "@waline/client";
+import { init } from '@waline/client';
+import '@waline/client/dist/waline.css';
 
 const app = createApp(App)
 const locale = {
     placeholder: "For a healthy network environment, comments will be displayed after review."
 }
-const waline = Waline({
+const waline = init({
     el: '#waline',
-    serverURL: "https://eddiehe-avatars-waline.vercel.app",
+    serverURL: "https://eddiehe-profile-pictures-waline.vercel.app",
     lang: 'en',
     locale,
 });

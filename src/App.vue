@@ -14,7 +14,7 @@
       >Eddie He's Profile Pictures</el-menu-item
     >
     <el-sub-menu index="2">
-      <template #title>Avatars</template>
+      <template #title>Profile Pictures</template>
       <el-menu-item
         index="2-1"
         @click="
