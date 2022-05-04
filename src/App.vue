@@ -11,7 +11,7 @@
     :router="false"
   >
     <el-menu-item index="/" @click="routerPush('/')"
-      >Eddie He's Profile Pictures</el-menu-item
+      >Eddie's Profile Pictures</el-menu-item
     >
     <el-sub-menu index="2">
       <template #title>Profile Pictures</template>
