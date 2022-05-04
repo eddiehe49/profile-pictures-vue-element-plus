@@ -3,13 +3,13 @@
     <img alt="Vue logo" src="../assets/logo.png" style="padding-top: 3%" />
     <!-- <h1>This is an about page</h1> -->
     <div class="hello">
-      <el-button
+      <!-- <el-button
         type="primary"
         style="margin: 2% 0 2% 0"
         @click="drawer = true"
       >
         What are avatars?
-      </el-button>
+      </el-button> -->
       <el-drawer
         v-model="drawer"
         title="What are avatars?"
