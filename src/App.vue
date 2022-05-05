@@ -87,7 +87,28 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav> -->
-  <router-view />
+  <router-view @showTips="showTipsDialog" />
+  <el-dialog v-model="tipsDialogVisible" title="Tips" width="30%">
+    <ul style="text-align: left">
+      <li>
+        <span style="font-size: medium; font-weight: bold"
+          >There is a like button.</span
+        ><br />Give your preferred picture a thumb up!
+      </li>
+      <el-divider />
+      <li>
+        <span style="font-size: medium; font-weight: bold">Scroll down!</span
+        ><br />Have fun in the comment section.
+      </li>
+    </ul>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="primary" @click="tipsDialogVisible = false"
+          >OK</el-button
+        >
+      </span>
+    </template>
+  </el-dialog>
   <el-backtop :right="100" :bottom="100" />
 </template>
 
@@ -102,6 +123,7 @@ export default {
       activeIndex2: "/",
       screenWidth: document.body.clientWidth,
       screeHeight: document.body.clientHeight,
+      tipsDialogVisible: true,
     };
   },
   methods: {
@@ -117,7 +139,11 @@ export default {
     openBlankWebsite(URL) {
       window.open(URL, "_blank", "noopener=yes,noreferrer=yes");
     },
+    showTipsDialog() {
+      this.tipsDialogVisible = true;
+    },
   },
+  created() {},
 };
 </script>
 

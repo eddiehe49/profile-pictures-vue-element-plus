@@ -15,7 +15,7 @@ const waline = init({
     serverURL: "https://eddiehe-profile-pictures-waline.vercel.app",
     lang: 'en',
     locale,
-});
+})
 
 app.use(router)
 app.use(ElementPlus)

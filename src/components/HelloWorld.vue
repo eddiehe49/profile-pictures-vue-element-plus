@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <!-- <h1>{{ msg }}</h1> -->
-    <el-dialog v-model="tipsDialogVisible" title="Tips" width="30%">
+    <!-- <el-dialog v-model="tipsDialogVisible" title="Tips" width="30%">
       <ul style="text-align: left">
         <li>
           <span style="font-size: medium; font-weight: bold"
@@ -21,7 +21,7 @@
           >
         </span>
       </template>
-    </el-dialog>
+    </el-dialog> -->
     <el-container style="padding-top: 3%">
       <div style="width: 30%; float: left">
         <p
@@ -149,7 +149,7 @@ export default {
       screenWidth: null,
       screenHeight: null,
       verificationDialogVisible: ref(false),
-      tipsDialogVisible: ref(true),
+      // tipsDialogVisible: ref(true),
       inputNumber: ref(1),
     };
   },
