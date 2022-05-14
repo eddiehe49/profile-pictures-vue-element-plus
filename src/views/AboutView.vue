@@ -6,27 +6,6 @@
       <el-button type="primary" style="margin: 2% 0 0% 0" @click="showTips">
         Tips
       </el-button>
-      <el-drawer
-        v-model="drawer"
-        title="What are avatars?"
-        direction="btt"
-        size="35%"
-      >
-        Check out this
-        <a
-          href="https://web.okjike.com/u/60001f57-6fec-4ad1-963b-51ebdf913f8c"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color: #409eff"
-        >
-          site</a
-        >
-        on your desktop browser.
-        <br />
-        Do you see the round picture in the top-left corner of every post?
-        <br />
-        That's my avatar!
-      </el-drawer>
       <h3>Powerd by</h3>
       <ul>
         <li>
@@ -99,7 +78,6 @@ export default {
   },
   mounted() {
     const internalInstance = getCurrentInstance();
-    //  全局变量
     let global = internalInstance.appContext.config.globalProperties;
     global.$waline.update();
   },
