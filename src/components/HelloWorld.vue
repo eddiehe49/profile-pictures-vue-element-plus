@@ -24,28 +24,16 @@
     </el-dialog> -->
     <el-container style="padding-top: 3%">
       <div style="width: 30%; float: left">
-        <p
-          class="leftWords"
-          v-html="
-            localProfilePictures
-              ? localProfilePictures[index].words
-              : 'Hold on please.'
-          "
-        ></p>
+        <p class="leftWords" v-html="
+          localProfilePictures
+            ? localProfilePictures[index].words
+            : 'Hold on please.'
+        "></p>
       </div>
       <div style="width: 40%; float: left">
-        <el-carousel
-          :interval="4000"
-          type="card"
-          :autoplay="false"
-          :initial-index="0"
-          @change="changeItem"
-          ref="carousel"
-        >
-          <el-carousel-item
-            v-for="localProfilePicture in localProfilePictures"
-            :key="localProfilePicture.id"
-          >
+        <el-carousel :interval="4000" type="card" :autoplay="false" :initial-index="0" @change="changeItem"
+          ref="carousel">
+          <el-carousel-item v-for="localProfilePicture in localProfilePictures" :key="localProfilePicture.id">
             <el-image :src="localProfilePicture.src" />
           </el-carousel-item>
         </el-carousel>
@@ -54,7 +42,7 @@
         <p class="rightWords" v-if="localProfilePictures">
           <code style="color: #337ecc; font-size: larger">
             {{
-              localProfilePictures ? localProfilePictures[index].likes : null
+                localProfilePictures ? localProfilePictures[index].likes : null
             }}
           </code>
           folks like this avatar.
@@ -63,44 +51,25 @@
       </div>
     </el-container>
     <div className="container-fluid" style="padding-top: 2%; clear: both">
-      <el-tooltip
-        content="Click Me!"
-        effect="customized"
-        v-if="iconName === 'camera'"
-      >
-        <el-icon
-          style="cursor: pointer"
-          :size="iconSize"
-          @click="verificationDialogVisible = true"
-          ><camera
-        /></el-icon>
+      <el-tooltip content="Click Me!" effect="customized" v-if="iconName === 'camera'">
+        <el-icon style="cursor: pointer" :size="iconSize" @click="verificationDialogVisible = true">
+          <camera />
+        </el-icon>
       </el-tooltip>
-      <el-icon
-        class="is-loading"
-        :size="iconSize"
-        v-if="iconName === 'loading'"
-      >
+      <el-icon class="is-loading" :size="iconSize" v-if="iconName === 'loading'">
         <loading />
       </el-icon>
-      <el-icon :size="iconSize" v-if="iconName === 'camera-filled'"
-        ><camera-filled
-      /></el-icon>
+      <el-icon :size="iconSize" v-if="iconName === 'camera-filled'">
+        <camera-filled />
+      </el-icon>
     </div>
-    <el-dialog
-      v-model="verificationDialogVisible"
-      title="Varification"
-      width="30%"
-    >
+    <el-dialog v-model="verificationDialogVisible" title="Varification" width="30%">
       <p style="margin-bottom: 5%; font-size: medium">lg10 = ?</p>
       <el-input-number v-model="inputNumber" :min="1" :max="10" />
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="verificationDialogVisible = false"
-            >Cancel</el-button
-          >
-          <el-button type="primary" @click="confirmVarification"
-            >Confirm</el-button
-          >
+          <el-button @click="verificationDialogVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="confirmVarification">Confirm</el-button>
         </span>
       </template>
     </el-dialog>
