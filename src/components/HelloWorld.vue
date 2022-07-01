@@ -127,19 +127,6 @@ export default {
       handler: function (param) {
         this.screenWidth = param;
         if (this.screenWidth > this.screenHeight) {
-          this.iconSize = Math.round(this.screenWidth * 0.05);
-          // console.log("width > height, this.iconSize: ", this.iconSize);
-        } else {
-          this.iconSize = Math.round(this.screenHeight * 0.05);
-          // console.log("width < height, this.iconSize: ", this.iconSize);
-        }
-      },
-      setImmediate: true,
-    },
-    screenHeight: {
-      handler: function (param) {
-        this.screenHeight = param;
-        if (this.screenWidth > this.screenHeight) {
           this.iconSize = Math.round(this.screenWidth * this.iconScale);
           // console.log("width > height, this.iconSize: ", this.iconSize);
         } else {
@@ -149,6 +136,19 @@ export default {
       },
       setImmediate: true,
     },
+    // screenHeight: {
+    //   handler: function (param) {
+    //     this.screenHeight = param;
+    //     if (this.screenWidth > this.screenHeight) {
+    //       this.iconSize = Math.round(this.screenWidth * this.iconScale);
+    //       // console.log("width > height, this.iconSize: ", this.iconSize);
+    //     } else {
+    //       this.iconSize = Math.round(this.screenHeight * this.iconScale);
+    //       // console.log("width < height, this.iconSize: ", this.iconSize);
+    //     }
+    //   },
+    //   setImmediate: true,
+    // },
   },
   mounted() {
     this.screenWidth = document.body.clientWidth;
