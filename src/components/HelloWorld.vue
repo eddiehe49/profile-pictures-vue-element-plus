@@ -232,44 +232,6 @@ export default {
         console.log("patch jsonplaceholder error: ", error);
       });
     },
-    getJsonbinProfilePictures() {
-      const getProfilePictures = async () => {
-        let result = await Service.getJsonbinProfilePicturesJson();
-        console.log("get jsonbin result: ", result);
-        this.localProfilePictures = result.data.record.profilePictures;
-        this.$refs.carousel.setActiveItem(0);
-        this.index = 0;
-        this.iconName = "camera";
-        console.log("this.localProfilePictures: ", this.localProfilePictures);
-      };
-      getProfilePictures().catch((error) => {
-        this.showErrorNotification();
-        console.log("get jsonbin error: ", error);
-      });
-    },
-    putJsonbinProfilePictures() {
-      // Coould not do (let tempProfilePictures=this.localProfilePictures), as tempProfilePictures will sync with this.localProfilePictures
-      let tempProfilePictures = JSON.stringify(this.localProfilePictures);
-      let profilePictures = JSON.parse(tempProfilePictures);
-      profilePictures[this.index].likes += 1;
-      const putProfilePictures = async () => {
-        let result = await Service.putJsonbinProfilePicturesJson({
-          profilePictures,
-        });
-        console.log("put jsonbin result: ", result);
-        this.localProfilePictures[this.index].likes += 1;
-        this.iconName = "camera-filled";
-        this.showSuccessNotification();
-        setTimeout(() => {
-          this.iconName = "camera";
-          console.log("3 s passed. Change camera-fill to camera.");
-        }, 2500);
-      };
-      putProfilePictures().catch((error) => {
-        this.showErrorNotification();
-        console.log("put jsonbin error: ", error);
-      });
-    },
     getKratesProfilePictures() {
       const getProfilePictures = async () => {
         let result = await Service.getKratesProfilePicturesJson();
@@ -312,7 +274,6 @@ export default {
         this.verificationDialogVisible = false;
         this.iconName = "loading";
         // this.patchJsonplaceholderProfilePictures();
-        // this.putJsonbinProfilePictures();
         this.putKratesProfilePictures();
       } else {
         ElMessage({
@@ -328,7 +289,6 @@ export default {
   created() {
     this.iconName = "loading";
     // this.getJsonplaceholderProfilePictures();
-    // this.getJsonbinProfilePictures();
     this.getKratesProfilePictures();
   },
 };
